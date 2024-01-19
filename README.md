@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 💻 Sobre o projeto
 
-## Getting Started
+Este projeto cria uma consulta e obtém respostas de processos via `CNJ` utilizando a API da JUDIT (empresa que possui crawlers para busca de processos, informações, monitoramento e mais). Neste momento ela está trazendo uma listagem com informações processuais de forma programática com números de processos que estão na pasta `mock`, e clicando em um processo da lista é possível ver maiores detalhes em outra tela com maiores detalhes.
 
-First, run the development server:
+### Estrutura
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+📦 src
+ ┣ 📂 app (contém os arquivos layout.tsx com metadados para SEO e page.tsx com a página principal, pasta processo com a segunda rota e a pasta components onde residem componentes atômicos que no momento só existe o Header)
+ ┣ 📂 components (para componentes reutilizáveis, possui components atômicos como Button, Input etc.)
+ ┣ 📂 services (integração com apis, separados por lógica de negócio acompanhando os modules)
+ ┣ 📂 services (serviços customizados que utilizam sua classe base)
+ ┣ 📂 mock (dados mockados no formato json, nesse caso somente possui os processos)
+ ┣ 📂 entities (models, no caso tipos e interfaces para serem utilizados)
+ ┣ 📂 utils (criação de classe base http client etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Pré-requisitos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) é recomendado a utilização da versão 20.1.0 para evitar bugs com a nova versão do next.js. Além disto, você vai precisar ter uma uma `API_KEY` que você pode obter no site da[JUDIT](https://app.judit.io/). Na raíz do projeto possui um arquivo chamado `.env.example` com o contéudo abaixo. Copie, crie um arquivo `.env.local` na raíz do seu projeto e preencha com sua chave.
 
-## Learn More
+```
+BASE_URL=https://requests.prod.judit.io
+API_KEY=YOUR_API_KEY_HERE
+```
 
-To learn more about Next.js, take a look at the following resources:
+#### 🎲 Rodando a aplicação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### NPM
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
 
-## Deploy on Vercel
+# Clone este repositório
+$ git clone git@github.com:patrick-narciso/lawsuits-search.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd lawsuits-search
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Instale as dependências
+$ npm run install
+
+# execute em modo de desenvolvimento
+$ npm run dev
+
+```
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- **[TypeScript](https://www.typescriptlang.org/)**
+- **[React](https://react.dev/)**
+- **[Next.js](https://nextjs.org/)**
+- **[Axios](https://github.com/axios/axios)**
+- **[Tailwind](https://tailwindcss.com/)**
+
+Typescript foi utilizado para deixar a aplição mais estável, evitando erros de compilação e ajudando a desenvolver pelas previsibilidades ao ter um código fortemente tipado.
+
+Axios foi utilizado por ser simples e flexível, com a criação de uma instância principal por exemplo podendo deixar os headers pré-definidos, e a possibilidade de usar seus interceptors caso haja necessidade.
+
+As requisições à API foram feitas no lado do server para otimizar a renderização e evitar a exposição da `API_KEY` necessária para as chamadas.
+
+## 🦸 Autor
+
+[![Linkedin Badge](https://img.shields.io/badge/-Patrick-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/patricknarciso/)](https://www.linkedin.com/in/patricknarciso/)
+[![Gmail Badge](https://img.shields.io/badge/-patrick.ncsilva@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:patrick.ncsilva@gmail.com)](mailto:patrick.ncsilva@gmail.com)
+
+---
