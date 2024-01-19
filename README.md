@@ -9,7 +9,6 @@ Este projeto cria uma consulta e obtém respostas de processos via `CNJ` utiliza
  ┣ 📂 app (contém os arquivos layout.tsx com metadados para SEO e page.tsx com a página principal, pasta processo com a segunda rota e a pasta components onde residem componentes atômicos que no momento só existe o Header)
  ┣ 📂 components (para componentes reutilizáveis, possui components atômicos como Button, Input etc.)
  ┣ 📂 services (integração com apis, separados por lógica de negócio acompanhando os modules)
- ┣ 📂 services (serviços customizados que utilizam sua classe base)
  ┣ 📂 mock (dados mockados no formato json, nesse caso somente possui os processos)
  ┣ 📂 entities (models, no caso tipos e interfaces para serem utilizados)
  ┣ 📂 utils (criação de classe base http client etc.)
